@@ -4,17 +4,13 @@ mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
 wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
 # 清空yum缓存
 yum clean all
-# 创建yum缓存，可能失败，多试几次
-yum makecache
-yum makecache
+# 创建yum缓存
 yum makecache
 # GPG密钥可能错误，似乎可以通过执行以下命令来解决
 curl -L https://yum.puppetlabs.com/RPM-GPG-KEY-puppet -o /tmp/RPM-GPG-KEY-puppet
 sudo gpg --with-fingerprint "/tmp/RPM-GPG-KEY-puppet"
 sudo cp /tmp/RPM-GPG-KEY-puppet /etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs-PC1
-# 更新yum，可能失败，多试几次
-yum update -y
-yum update -y
+# 更新yum
 yum update -y
 # 更换PHP源
 yum -y install epel-release && rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
